@@ -1,0 +1,187 @@
+
+<div class="main-banner" >
+   
+        <video autoplay muted loop id="bg-video" id="top" *ngFor="let v  of vid">
+            <source src="../../../assets/video/{{v.video}}" alt="image" >  
+        </video>
+ 
+        <div class="video-overlay header-text">
+            <div class="caption">
+                <h2>ASSOCIATION SPORTIVE <em>STB</em></h2>
+                <div class="main-button scroll-to-section">
+                    <a routerLink="about">A propos de nous </a>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+
+        <!-- ***** Main Banner Area End ***** -->
+
+        <!-- ***** Header Area End ***** -->
+        <!-- ***** Diaporama ***** -->
+        
+        <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row align-items-center pb-1" *ngFor="let m of Mot">
+               
+                <div class="col-lg-5">
+                    <img class="img-thumbnail p-2" src="assets/images/{{m.photo}} " width="700" height="200px">
+                </div>
+                
+                <div class="col-lg-7 mt-5 mt-lg-0">
+                        <hr noshade  size=8 width="100%" style="background: black;">
+
+                    <h1 class="mt-2 mb-4">Le mot du <em>president</em></h1>
+                        <hr noshade  size=8 width="100%" style="background: black;" >
+                    <h2  class="mt-2 mb-4">{{m.nompres}}  {{m.prenompres}}</h2>
+                    <p class="mb-4">{{m.description}}</p>
+                </div>
+                 
+            </div>
+            
+                    
+        <div class="container-fluid" >
+          <div class="row" >
+            
+            <section class="section" id="trainers">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 offset-lg-3">
+                            <div class="section-heading">
+                                  <HR noshade align=center size=8 width="100%" style="background: black;">
+                                <h2><em>Nos</em> Actualités </h2>
+                                 <HR noshade align=center size=8 width="100%" style="background: black;">
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+    
+                    
+        <div class="container-fluid" >
+          <div class="row">
+            
+            <div class="col-md-4"  *ngFor="let n of  NewsList">
+              <div id="news-slider" class="owl-carousel">
+                <div class="post-slide">
+                  <div class="post-img">
+                <img src="../../../assets/picture/{{n.image}}" alt="image">
+                  </div>
+                  <div class="post-content">
+                    <h3 class="post-title">
+                      <a href="#">{{n.titreact}}</a>
+                    </h3>
+                    <p class="post-description"> {{n.description}}</p>
+                    <span class="post-date"><i class="fa fa-clock-o"></i>{{n.datee}}</span>
+    
+                    <a href="../../../assets/files/{{n.namefichier}}" href="../../../assets/files/{{n.namefichier}}" target="_blank" class="read-more">Lire la suite</a>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br><br><br>   
+           
+        <div class="container-fluid" >
+            <div class="row" >
+              
+              <section class="section" id="trainers">
+                  <div class="container">
+                      <div class="row">
+                          <div class="col-lg-6 offset-lg-3">
+                              <div class="section-heading">
+                                    <HR noshade align=center size=8 width="100%" style="background: black;">
+                                  <h2><em>Nos</em> activites </h2>
+                                   <HR noshade align=center size=8 width="100%" style="background: black;">
+                                  <br>
+                              </div>
+                          </div>
+                      </div>
+      
+                
+                            
+                
+                                <!-- activites -->
+                
+                
+                                <!-- debut insertion image  -->
+                                 
+                            <!-- fin insertion image  -->
+                
+                                                    
+                                    <div class="col-lg-6"  *ngFor="let s of Listsport">
+                                <ul class="features-items">
+                                    <li class="feature-item">
+                                        <div class="left-icon">
+                                          <a [routerLink]="['/equipes', s.idsport]">   
+                                                     <img src="assets/picture/{{s.photo}}" width="100px" height="100px">
+                                            </a>
+                                            
+                                        </div>
+                                        <div class="right-content">
+                                            <h4>{{s.nomsport}}</h4>
+                
+                                            <p>{{s.description}}</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                    </div></section>
+             
+                      
+                        <br>
+                        <section class="section" id="our-classes">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-6 offset-lg-3">
+                                        <div class="section-heading">
+                                            <HR noshade align=center size=8 width="100%" style="background: black;">
+                        
+                                            <h2>Nos  <em>événements</em></h2>
+                                            <HR noshade align=center size=8 width="100%" style="background: black;">
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" id="tabs" >
+                               
+                        
+                                
+                                  
+                                    <div class="col-lg-5" *ngFor="let item of EventList; let i=index;   ">
+                                   
+                                    <section class='tabs-content'>
+                                                           <article>
+                                        
+                                        <img src="../../../assets/picture/{{item.photo}}" width="1000px" height="300px">
+                                        <h3>{{item.titreevent}}</h3>
+                                        <p>{{item.description}}</p>
+                                         <div class="main-button">
+                        
+                                          <a [routerLink]="['/events', item.idevent]" >Voir les évènements</a>
+                                            </div>
+                                      </article>
+                                                <br><br>        
+                                     
+                                       
+                                    </section>
+                                  </div>
+                                </div>
+                            </div>
+                        
+                    </section>
+                     
+                      
+                        <div class="col-lg-6 offset-lg-3">
+                            <div class="section-heading">
+                                <HR noshade align=center size=8 width="100%" style="background: black;">
+            
+                                <h2>Conventions  <em>ASSTB</em></h2>
+                                <HR noshade align=center size=8 width="100%" style="background: black;">
+                                <br>
+                                <div class="main-button"  *ngFor="let n of conv;"><a href="../../../assets/files/{{n.lien}}" href="../../../assets/files/{{n.namefichier}}" target="_blank" class="read-more">Télecharger</a></div>
+                      
+                            </div>
+                        </div>
+                        

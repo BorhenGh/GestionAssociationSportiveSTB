@@ -1,0 +1,62 @@
+<app-navbar></app-navbar>
+<div class="form-style-5">
+    <form   #usersForm="ngForm" (ngSubmit)=" getmotsFormData(usersForm.value)">
+    <fieldset>
+       
+    <legend><span class="number">10</span> Ajouter/Modifier Mot </legend>
+  
+    <label >Nom pres</label><br><br>
+    <input type="text" ngModel name="nompres">
+    <label >Prenom pres</label><br><br>
+    <input type="text" ngModel name="prenompres">
+    <label >Description</label><br><br>
+    <input type="text" ngModel name="description">
+    <label >Photo</label><br><br>
+    <input type="file" (change)="  handleFileInput($event)" accept="image/*"> <br> <br> <br> 
+    <br><br>
+    <label>Choisir photo Presédent</label>
+    <select  ngModel   name="photo" >
+    
+     <option   value="{{c}}">{{c}}</option>
+ </select><br> <br>
+      
+     
+    <input type="submit" value="{{editmode?'Update Mot':'Add Mot' }}" > 
+    </fieldset>
+   
+  
+    </form>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Mot Id</th>
+                <th>Nom </th>
+                
+                <th>Prenom</th>
+                <th>Description</th>
+                <th>Photo</th>
+                
+            </tr>
+    
+        </thead>
+        <tbody>
+            <tr *ngFor="let dataitem of lstmot">
+                <td>{{dataitem.idmot}}</td>
+                <td>{{dataitem.nompres}}</td>
+                <td>{{dataitem.prenompres}}</td>
+                <td>{{dataitem.description}}</td>
+                <td>{{dataitem.photo}}</td>
+
+               
+              <td>
+              <button  type="button" (click)="update(dataitem.idmot)"   class="btn btn-light mr-1">Modifier </button><br> <br>
+             <button  (click)="supprimer(dataitem.idmot)"type="button" class="btn btn-danger">Supprimer</button> 
+               
+              </td>
+            </tr>
+        </tbody>
+    </table>
+   
+   

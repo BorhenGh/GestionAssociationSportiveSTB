@@ -1,0 +1,73 @@
+<br>
+ 
+        <div class="col-lg-6 offset-lg-3">
+                    <div class="section-heading">
+                        <HR noshade align=center size=8 width="100%" style="background: black;">
+
+                        <h2>Nos Programmes</h2>
+                        <HR noshade align=center size=8 width="100%" style="background: black;">
+                    </div>
+                </div>
+    <!-- *** Header Area End *** -->
+
+    <!-- *** Main Banner Area Start *** -->
+   
+    <!-- *** Main Banner Area End *** -->
+
+    <!-- *** Features Item Start *** -->
+
+   
+
+                        
+    <!-- *** Features Item End *** -->
+
+   
+
+<div class="container-fluid my-3"  *ngFor="let item of  eventsList">
+        <section class="row gy-3" style="background-color: #F1F6FF;">
+
+            <div class="col-12 col-md-10" style="background-color: #F1F6FF;">
+                <!--Begin Breadcrumb-->
+                
+                <!--End Breadcrumb-->
+                <!--Begin Pagination-->
+               
+                <!--End Pagination-->
+                <div class="list-group list-group-flush my-3" style="background-color: black;">
+                        
+
+                    <article class="list-group-item" style="background-color: #F1F6FF;">
+                        <div class="row">
+                            <figure class="col-12 col-md-4 d-none d-md-block">
+                                <img src="../../../assets/picture/{{item.photo}}" alt="Arbre"  Height="240px" Width="330px">
+                            </figure>
+                            <div class="col-12 col-md-8">
+                                <p>{{item.nomevent}}</p>
+                                    <p>{{item.date}}</p>
+
+                             <p>{{item.description}}</p>
+
+                                <p>
+                                    <br>
+                                    <a [routerLink]="['/video', item.idevents]" class="btn btn-secondary">Voir les videos</a>
+                                    <br><br>
+                                    <a  [routerLink]="['/galerie', item.idevents]" class="btn btn-secondary">Voir les photos</a>
+
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+
+                
+                  
+                </div>
+                <!--Begin Pagination-->
+            
+                <br>
+                <br>
+
+                <!--End Pagination-->
+            </div>
+          
+        </section>    
+    </div>

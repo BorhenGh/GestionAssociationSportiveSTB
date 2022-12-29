@@ -1,0 +1,52 @@
+<section class="section" id="features">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading">
+                    
+                    <HR noshade align=center size=8 width="100%" style="background: black;">
+                    <h2>Nos <em>activités</em></h2>
+                    <HR noshade align=center size=8 width="100%" style="background: black;">
+                </div>
+            </div>
+
+            
+
+                <!-- activites -->
+
+
+                <!-- debut insertion image  -->
+                 
+            <!-- fin insertion image  -->
+
+                                    
+                    <div class="col-lg-6"  *ngFor="let s of Listsport">
+                <ul class="features-items">
+                    <li class="feature-item">
+                        <div class="left-icon">
+                          <a [routerLink]="['/equipes', s.idsport]">   
+                                     <img src="assets/picture/{{s.photo}}" width="100px" height="100px">
+                            </a>
+                            
+                        </div>
+                        <div class="right-content">
+                            <h4>{{s.nomsport}}</h4>
+
+                            <p>{{s.description}}</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+                                     
+                  
+                                     
+
+
+                   
+
+                
+                    <!-- new -->
+
+
+    </div></div>
+</section>

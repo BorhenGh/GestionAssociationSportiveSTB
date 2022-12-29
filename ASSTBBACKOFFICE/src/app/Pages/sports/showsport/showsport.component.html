@@ -1,0 +1,58 @@
+
+<app-navbar></app-navbar>
+<div class="form-style-5">
+    <form   #usersForm="ngForm" (ngSubmit)="getsportFormData(usersForm.value)">
+    <fieldset>
+    <legend><span class="number">1</span> Ajouter/Modifier Sport</legend>
+    
+   
+    <label >Nom de Sport</label><br><br>
+    <input type="text" ngModel name="nomsport">
+    <label >Description de Sport</label><br><br>
+    <input type="text" ngModel name="description">
+    <label >Photo de Sport</label><br><br>
+   <input type="file" (change)="handleFileInput($event)" [multiple]="true" accept="image/*"    class="form-group"   > <br> <br>
+<label>Choisir Photo</label>
+   <select  ngModel   name="photo" >
+   
+    <option   value="{{c}}">{{c}}</option>
+</select>
+
+
+
+  
+  
+     
+   <input type="submit" value="{{editmode?'Update Sport':'Add Sport' }}" > 
+    </fieldset>
+   
+  
+    </form>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>SportId</th>
+                <th>NomSport</th>
+                <th>Description</th>
+                <th>Photo</th>
+                <th>Action</th>
+            </tr>
+    
+        </thead>
+        <tbody>
+            <tr *ngFor="let dataitem of   Listsport">
+                <td>{{dataitem.idsport}}</td>
+                <td>{{dataitem.nomsport}}</td>
+                <td>{{dataitem.description}}</td>
+                <td>{{dataitem.photo}}</td>
+              
+              <td>
+               
+                <button  type="button" (click)="update(dataitem.idsport)"   class="btn btn-light mr-1">Modifier </button><br> <br>
+                <button  (click)="supprimer(dataitem.idsport)"type="button" class="btn btn-danger">Supprimer</button>
+              </td>
+            </tr>
+        </tbody>
+    </table>

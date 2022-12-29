@@ -1,0 +1,66 @@
+<br>
+<br>
+<br>
+<!-- *** Header Area End *** -->
+
+<!-- *** Main Banner Area Start *** -->
+
+<!-- *** Main Banner Area End *** -->
+
+<!-- *** Features Item Start *** -->
+
+
+
+                    
+<!-- *** Features Item End *** -->
+
+
+
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading">
+                    
+                    <HR noshade align=center size=8 width="100%" style="background: #1c7591;">
+                    <h2>Album <em>ASSTB</em></h2>
+                    <HR noshade align=center size=8 width="100%" style="background: #1c7591;">
+                </div>
+            </div>
+<div class="container-fluid my-3">
+    <section class="row gy-3">
+        <div class="col-12 col-md-9">
+            <!--Begin Breadcrumb-->
+            
+            <!--End Breadcrumb-->
+            <!--Begin Pagination-->
+           
+            <!--End Pagination-->
+            <div class="list-group list-group-flush my-3" *ngFor="let n of Listalbums ">
+                    
+
+                <article class="list-group-item">
+                    <div class="row">
+                        <figure class="col-12 col-md-4 d-none d-md-block">
+                            <img src="../../../assets/picture/{{n.photo}}" alt="Arbre"  Height="240px" Width="330px" >
+                        </figure>
+                        <div class="col-12 col-md-8">
+                            <p>{{n.nomalbum}}</p>
+                               
+                                <br>
+                                <a [routerLink]="['/albumimg', n.idalbum]">Voir Photos</a> <br> <br>
+                                <a [routerLink]="['/albumvid', n.idalbum]">Voir Videos</a> 
+                           
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+            <!--Begin Pagination-->
+          
+            <br>
+            <br>
+
+            <!--End Pagination-->
+        </div>
+        
+        
+    </section>    
+</div>

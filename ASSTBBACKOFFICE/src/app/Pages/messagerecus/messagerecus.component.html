@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Message Id</th>
+            
+            <th>Envoyé Par </th>
+            <th>Son email</th>
+            <th>Sujet de message</th>
+            <th>Message</th>
+            <th>Action</th>
+          
+        </tr>
+
+    </thead>
+    <tbody>
+        <tr *ngFor="let dataitem of lstmessages ">
+            <td>{{dataitem.idmessage}}</td>
+            <td>{{dataitem.nom}}</td>
+            <td>{{dataitem.email}}</td>
+            <td>{{dataitem.sujet}}</td>
+            <td>{{dataitem.message}}</td>
+           
+           
+          <td>
+        
+         <button  (click)="supprimer(dataitem.idmessage)"type="button" class="btn btn-danger">Supprimer</button> 
+           
+          </td>
+        </tr>
+    </tbody>
+</table>

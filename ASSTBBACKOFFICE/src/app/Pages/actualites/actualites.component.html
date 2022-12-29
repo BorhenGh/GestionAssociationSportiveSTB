@@ -1,0 +1,76 @@
+<app-navbar></app-navbar>
+<div class="form-style-5">
+    <form   #usersForm="ngForm" (ngSubmit)="  getactualiteFormData(usersForm.value)">
+    <fieldset>
+    <legend><span class="number">6</span> Ajouter/Modifier Actualite</legend>
+   
+    <label >Titre actualite</label><br><br>
+    <input type="text" ngModel name="titreact">
+    <label >Contenu</label><br><br>
+    <input type="text" ngModel name="contenu">
+    <label >Date</label><br><br>
+    <input type="date" ngModel name="datee">
+    <br><br> 
+    <label>Lien de Image</label>
+   
+  
+    <input type="file" (change)="handleFileInput($event)" [multiple]="true" accept="image/*"    class="form-group"  >
+    <br> <br><label>Choisir lien Image Actualite</label>
+   
+    <select  ngModel   name="lien" >
+    
+     <option   value="{{c}}">{{c}}</option>
+ </select>
+ <label >Image</label><br><br>
+    <select  ngModel name="image" >
+ 
+  <option   value="{{c}}">{{c}}</option>
+</select><br> <br>
+  
+  
+   <label >Name fichier</label><br><br>
+   <input input type="file" (change)="handleFileInputfichier($event)" [multiple]="true" accept=".pdf"    class="form-group"  >
+   <br> <br><label>Choisir Fichier </label>
+   <select  ngModel name="namefichier" >
+   
+    <option   value="{{d}}">{{d}}</option>
+</select>
+  <br><br>
+   <input type="submit" value="{{editmode?'Update Actualite':'Add Actualite' }}" > 
+    </fieldset>
+   
+  
+    </form>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Acutalite Id</th>
+                <th>Titre actualite</th>
+                <th>Conteu</th>
+                <th>Date</th>
+                <th>Lien</th>
+                <th>Image</th>
+                <th>Name fichier</th>
+                <th>Action</th>
+            </tr>
+    
+        </thead>
+        <tbody>
+            <tr *ngFor="let dataitem of   Listact">
+                <td>{{dataitem.idact}}</td>
+                <td>{{dataitem.titreact}}</td>
+                <td>{{dataitem.contenu}}</td>
+                <td>{{dataitem.datee}}</td>
+                <td>{{dataitem.lien}}</td>
+                <td>{{dataitem.image}}</td>
+                <td>{{dataitem.namefichier}}</td>
+              <td>
+               
+                <button  type="button" (click)="update(dataitem.idact)"   class="btn btn-light mr-1">Modifier </button><br> <br>
+                <button  (click)="supprimer(dataitem.idact)"type="button" class="btn btn-danger">Supprimer</button>
+              </td>
+            </tr>
+        </tbody>
+    </table>

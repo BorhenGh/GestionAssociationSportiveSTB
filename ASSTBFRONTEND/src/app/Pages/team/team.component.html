@@ -1,0 +1,39 @@
+<br> <br> <br> <br> <br> <br> 
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6" *ngFor="let res of  respList">
+              
+                 
+                <div class="our-team" >
+                    <h4 style="color: #1b2433;"> <b>Responsable </b></h4 >
+                    <div class="pic">
+                        <img class=" img-fluid" src="../../../assets/picture/{{res.photo}}" alt="card image">
+                    </div>
+                    <h3 >{{res.nomresponsable}} </h3>
+                    
+                    <ul class="backside">
+                        <span class="post">{{res.fonction}}</span>
+                      
+                    </ul>
+              
+                </div>
+            </div> </div></div> <br> <br> <br> <br> <br>
+            <div class="container">
+                <div class="row">
+            <div class="col-md-3 col-sm-6" *ngFor="let j of joueursList">
+               
+                <div class="our-team">
+                    <h4 style="color: #1b2433;"> <b>Joueur </b></h4 >
+                    <div class="pic">
+                        <img class="card-img-top" src="../../../assets/picture/{{j.photo}}" alt="">
+                    </div>
+                    <h3 >{{j.nomj}}  {{j.prenomj}}</h3>
+                    
+                    <ul class="social">
+                        <span class="post"> {{j.poste}}</span>
+                    </ul>
+                    
+                </div>
+            </div>
+     
+           </div></div>

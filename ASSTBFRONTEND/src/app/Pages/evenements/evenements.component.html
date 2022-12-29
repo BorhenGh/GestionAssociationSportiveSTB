@@ -1,0 +1,38 @@
+<section class="section" id="our-classes">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading">
+                    <HR noshade align=center size=8 width="100%" style="background: black;">
+
+                    <h2>Nos  <em>événements</em></h2>
+                    <HR noshade align=center size=8 width="100%" style="background: black;">
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="tabs" >
+          <div class="col-lg-4" *ngFor="let item of EventList; let i=index;   ">
+           
+
+          </div>
+          <div class="col-lg-8"  *ngFor="let item of EventList; let i=index;">
+            <section class='tabs-content'>
+                                   <article>
+                
+                <img src="../../../assets/picture/{{item.photo}}" width="750px" height="280px">
+                <h3>{{item.titreevent}}</h3>
+                <p>{{item.description}}</p>
+                 <div class="main-button">
+
+                  <a [routerLink]="['/events', item.idevent]" >Voir les évènements</a>
+                    </div>
+              </article>
+                        <br><br>        
+             
+               
+            </section>
+          </div>
+        </div>
+    </div>
+</section>

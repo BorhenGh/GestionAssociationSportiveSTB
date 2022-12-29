@@ -1,0 +1,91 @@
+<div class="container-fluid page-header d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5 mb-5">
+     
+</div>
+<!-- Page Header Start -->
+
+
+<!-- Contact Start -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="text-center">
+            <h1 class="mt-2 mb-5">Contactez-nous</h1>
+            <br>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+                <div class="d-flex align-items-center border mb-3 p-4">
+                    <i class="fa fa-2x fa-map-marker-alt text-primary mr-3"></i>
+                    
+                    <div class="d-flex flex-column" *ngFor="let d of   ContactList">
+                        <h5 class="font-weight-bold">Notre bureau</h5>
+                        <p class="m-0">{{d.adresse}}</p>
+                    </div>
+                     
+                </div>
+                <div class="d-flex align-items-center border mb-3 p-4">
+                    <i class="fa fa-2x fa-envelope-open text-primary mr-3"></i>
+                   
+                    <div class="d-flex flex-column" *ngFor="let d of  ContactList">
+                        <h5 class="font-weight-bold">Envoyez-nous un email</h5>
+                        <p class="m-0">{{d.mail}}</p>
+                    </div>
+                     
+                </div>
+                <div class="d-flex align-items-center border mb-3 mb-md-0 p-4">
+                    <i class="fas fa-2x fa-phone-alt text-primary mr-3"></i>
+                    
+                    <div class="d-flex flex-column"  *ngFor="let d of  ContactList">
+                        <h5 class="font-weight-bold">Notre numéro</h5>
+                        <p class="m-0">{{d.numero}}</p>
+                    </div>
+                     
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="contact-form">
+                    <div id="success"></div>
+                    <div class="row">
+                        <div class="col-md-12"></div>                                                  
+                    </div>
+                    <form  #usersForm="ngForm" (ngSubmit)="getUserFormData(usersForm.value)" >
+
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="control-group">
+
+                                    <input type="text" class="form-control p-4" ngModel name="nom" placeholder="Votre nom" required="required" data-validation-required-message="Please enter your name" />
+                                    <p class="help-block text-danger"></p>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="control-group">
+                                    <input type="email" class="form-control p-4" email required #email="ngModel" ngModel name="email" placeholder="Votre e-mail" required="required" data-validation-required-message="Please enter your email" />
+                                    <p class="help-block text-danger"></p>
+                                    
+                                    <span *ngIf="email.invalid&&email.touched" class="error">Email is not valid</span>
+                                    <br>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <input type="text" class="form-control p-4" ngModel name="sujet" placeholder="Sujet" required="required" data-validation-required-message="Please enter a subject" />
+                            <p class="help-block text-danger"></p>
+                            <br>
+                        </div>
+                        <div class="control-group">
+                            <textarea class="form-control" rows="5" ngModel name="message" placeholder="Votre message" required="required" data-validation-required-message="Please enter your message"></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div>
+                            <br>
+
+                            <button class="btn btn-primary font-weight-semi-bold px-4" style="height: 50px;" type="submit" name="sendMessageButton"  data-backdrop="static" data-keyboard="false">Envoyer le message
+</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+  

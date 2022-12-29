@@ -1,0 +1,103 @@
+
+<div class="row">
+    <div class="col-lg-6 offset-lg-3">
+        <div class="section-heading">
+                <HR noshade align=center size=8 width="100%" style="background: rgb(9, 54, 158);">
+                        <h2>Bureau <em>Exécutif</em></h2>
+               <HR noshade align=center size=8 width="100%" style="background: rgb(9, 54, 158);">
+              <br>
+          </div>
+        
+    </div>
+
+<div class="pg-orgchart">
+<div class="org-chart">
+<ul>
+<li>
+<div class="user" *ngFor="let p of presList">
+<img src="../../../assets/picture/{{p.photo}}" class="img-responsive" />
+<div class="name">{{p.nomb}}   {{p.prenomb}}</div>
+<div class="role">{{p.poste}}</div>
+</div>
+       
+
+<ul>
+<li>
+            <div class="user" *ngFor="let s of  seclist">
+<img src="../../../assets/picture/{{s.photo}}" class="img-responsive" />
+<div class="name">{{s.nomb}}  {{s.prenomb}} </div>
+<div class="role">{{s.poste}}</div>
+</div>
+                        <ul>
+  <li  *ngFor="let vi of   secad">
+                <div class="user">
+<img src="../../../assets/picture/{{vi.photo}}" class="img-responsive" />
+<div class="name">{{vi.nomb}}  {{vi.prenomb}} </div>
+<div class="role">{{vi.poste}}</div>
+</div>
+                          </li>
+                          
+ 
+  
+</ul>
+</li>
+<li  *ngFor="let vi of  vislist ">
+        <div class="user">
+                <img src="../../../assets/picture/{{vi.photo}}" class="img-responsive" />
+                <div class="name">{{vi.nomb}} {{vi.prenomb}} </div>
+                <div class="role">{{vi.poste}}</div>
+                </div>
+                               
+                        <ul>
+  
+  
+  
+</ul>
+</li>
+<li  *ngFor="let cc of  tresList">  <div class="user" >
+        <img src="../../../assets/picture/{{cc.photo}}" class="img-responsive" />
+        <div class="name">{{cc.nomb}}  {{cc.prenomb}}</div>
+        <div class="role">{{cc.poste}}</div>
+        </div>
+      
+                        <ul>
+  <li  *ngFor="let  z of trad">
+                     <div class="user">
+<img src="../../../assets/picture/{{z.photo}}" class="img-responsive" />
+<div class="name">{{z.nomb}}  {{z.prenomb}}</div>
+<div class="role">{{z.poste}}</div>
+</div>
+                          </li>
+ 
+</ul>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<br>
+<br>
+
+
+<div class="pg-orgchart" >
+       
+                <div class="org-chart" >
+                    <ul >
+                       
+                  <li *ngFor="let m  of memList">
+                    
+                      
+                        <div class="user" >
+                                <img src="../../../assets/picture/{{m.photo}}" class="img-responsive" />
+                                <div class="name">{{m.nomb}}    {{m.prenomb}} </div>
+                                <div class="role">{{m.poste}}</div>
+                                </div>
+                 
+                      </li>
+                                     
+                     
+                      
+                    </ul>
+             
+                </div>
+            </div></div>

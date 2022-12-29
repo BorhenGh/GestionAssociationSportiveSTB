@@ -1,0 +1,94 @@
+<app-navbar></app-navbar>
+<div class="form-style-5">
+    <form   #usersForm="ngForm" (ngSubmit)="getequipesFormData(usersForm.value)">
+    <fieldset>
+    <legend><span class="number">2</span> Ajouter/Modifier Equipes</legend>
+  
+    
+    <label >Nom equipe</label><br><br>
+    <input type="text" ngModel name="nomequipe">
+    <label >Description</label><br><br>
+   <input type="text" ngModel name="description">
+   <label>Sport</label>
+   <select  ngModel   name="idsport" id="sport">
+       <option value="0">-Select-</option>
+       <option *ngFor="let item of lssport"  value={{item.idsport}}>{{item.nomsport}}</option>
+   </select>
+
+   <label>Categorie</label>
+   <select  ngModel   name="idcategorie" id="sport">
+       <option value="0">-Select-</option>
+       <option *ngFor="let item of lscat"  value={{item.idcategorie}}>{{item.type}}</option>
+   </select>
+   <select ngModel name="genre" required>
+    <option value="">Sélectionnez le sexe</option>
+    <option value="homme">homme</option>
+    <option value="femme">femmme</option>									
+</select>
+<select ngModel name="region" required>
+    <option value="">Sélectionnez le Region</option>
+    <option value="	Grand Tunis">	Grand Tunis</option>
+   
+    <option value="Bizerte">Bizerte</option>
+    <option value="Nabeul">Nabeul</option>
+    <option value="Zaghouan">Zaghouan</option>
+    <option value="Jendouba">Jendouba</option>
+    <option value="Beja">Beja</option>
+    <option value="Kef">Kef</option>
+    <option value="Siliana">Siliana</option>
+    <option value="Sousse">Sousse</option>
+    <option value="Monastir">Monastir</option>
+    <option value="Mahdia">Mahdia</option>
+    <option value="Kairouan">Kairouan</option>
+    <option value="Sfax">Sfax</option>
+    <option value="Kasserine">Kasserine</option>
+    <option value="Sidi Bouzid">Sidi Bouzid</option>
+    <option value="Gabes">Gabes</option>
+    <option value="Gabes">Gabes</option>
+    <option value="Mednine">Médnine</option>
+    <option value="Tatouine">Tataouine</option>
+    <option value="Gafsa">Gafsa</option>
+    <option value="Tozeur">Tozeur</option>
+    <option value="Kébili">Kébili</option>									
+</select>
+   <br><br>
+   
+   <input type="submit" value="{{editmode?'Update Equipe':'Add Equipe' }}" > 
+    </fieldset>
+   
+  
+    </form>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Equipe Id</th>
+                
+                <th>Nom Equipe</th>
+                <th>Description</th>
+                <th>Sport Id</th>
+                <th>Categorie Id</th>
+                <th>Genre</th>
+                <th>Region</th>
+                <th>Action</th>
+            </tr>
+    
+        </thead>
+        <tbody>
+            <tr *ngFor="let dataitem of lsequipes  ">
+                <td>{{dataitem.idequipe}}</td>
+                <td>{{dataitem.nomequipe}}</td>
+                <td>{{dataitem.description}}</td>
+                <td>{{dataitem.idsport}}</td>
+                <td>{{dataitem.idcategorie}}</td>
+                <td>{{dataitem.genre}}</td>
+                <td>{{dataitem.region}}</td>
+              <td>
+              <button  type="button" (click)="update(dataitem.idequipe)"   class="btn btn-light mr-1">Modifier </button><br> <br>
+             <button  (click)="supprimer(dataitem.idequipe)"type="button" class="btn btn-danger">Supprimer</button> 
+               
+              </td>
+            </tr>
+        </tbody>
+    </table>

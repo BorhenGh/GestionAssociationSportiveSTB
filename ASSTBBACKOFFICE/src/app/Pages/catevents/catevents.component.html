@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+<div class="form-style-5">
+    <form   #usersForm="ngForm" (ngSubmit)=" geteventFormData(usersForm.value)">
+    <fieldset>
+    <legend><span class="number">7</span> Ajouter/Modifier Event</legend>
+  
+    
+    <label >Titre</label><br><br>
+    <input type="text" ngModel name="titreevent">
+    <label >Description</label><br><br>
+   <input type="text" ngModel name="description">
+  
+   
+   <label >Date event</label><br><br>
+   <input type="date" ngModel name="datee">
+      
+   <label >Photo event</label><br><br>
+   <input type="file" (change)="handleFileInput($event)">
+   <br><br>
+   <label>Choisir Photo</label>
+   <select  ngModel   name="photo" >
+   
+    <option   value="{{c}}">{{c}}</option>
+</select>
+   <input type="submit" value="{{editmode?'Update Event':'Add Event' }}" > 
+    </fieldset>
+   
+  
+    </form>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Event Id</th>
+                
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Date event</th>
+                <th>Photo event</th>
+              
+                <th>Action</th>
+            </tr>
+    
+        </thead>
+        <tbody>
+            <tr *ngFor="let dataitem of lsevent  ">
+                <td>{{dataitem.idevent}}</td>
+                <td>{{dataitem.titreevent}}</td>
+                <td>{{dataitem.description}}</td>
+                <td>{{dataitem.datee}}</td>
+                <td>{{dataitem.photo}}</td>
+               
+              <td>
+              <button  type="button" (click)="update(dataitem.idevent)"   class="btn btn-light mr-1">Modifier </button><br> <br>
+             <button  (click)="supprimer(dataitem.idevent)"type="button" class="btn btn-danger">Supprimer</button> 
+               
+              </td>
+            </tr>
+        </tbody>
+    </table>

@@ -1,0 +1,56 @@
+<app-navbar></app-navbar>
+<div class="form-style-5">
+    <form   #usersForm="ngForm" (ngSubmit)="getimagesFormData(usersForm.value)">
+    <fieldset>
+    <legend><span class="number">1</span> Ajouter/Modifier Image Album</legend>
+  
+    <label >Description Image </label><br><br>
+    <input type="text" ngModel name="description">
+    <label >Photo</label><br><br>
+    <input type="file"  (change)="handleFileInput($event)" accept="image/*"  class="form-control">
+    <br><br>
+    <label>Choisir Image Album</label>
+    <select  ngModel   name="photo" >
+    
+     <option   value="{{c}}">{{c}}</option>
+ </select><br> <br>
+   <label>Albums</label>
+   <select  ngModel   name="idalbum" id="sport">
+       <option value="0">-Select-</option>
+       <option *ngFor="let item of lstalbums"  value={{item.idalbum}}>{{item.nomalbum}}</option>
+   </select>
+   <input type="submit" value="{{editmode?'Update videos':'Add video'}}" > 
+    </fieldset>
+   
+  
+    </form>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Image  Id</th>
+                
+                <th>Description</th>
+                <th>Photo</th>
+                <th>Albums Id</th>
+                <th>Action</th>
+             
+            </tr>
+    
+        </thead>
+        <tbody>
+            <tr *ngFor="let dataitem of lsimages  ">
+                <td>{{dataitem.idimage}}</td>
+                <td>{{dataitem.description}}</td>
+                <td>{{dataitem.photo}}</td>
+                <td>{{dataitem.idalbum}}</td>
+               
+              <td>
+              <button  type="button" (click)="update(dataitem.idimage)"   class="btn btn-light mr-1">Modifier </button><br> <br>
+             <button  (click)="supprimer(dataitem.idimage)"type="button" class="btn btn-danger">Supprimer</button> 
+               
+              </td>
+            </tr>
+        </tbody>
+    </table>

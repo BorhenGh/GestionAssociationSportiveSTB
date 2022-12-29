@@ -1,0 +1,83 @@
+<app-navbar></app-navbar>
+<div class="form-style-5">
+    <form   #usersForm="ngForm" (ngSubmit)=" getJoueursFormData(usersForm.value)">
+    <fieldset>
+    <legend><span class="number">3</span> Ajouter/Modifier Joueur </legend>
+  
+    <label >Nom Joueur </label><br><br>
+    <input type="text" ngModel name="nomj">
+    <label >Prenom Joueur </label><br><br>
+   
+
+    <input type="text" ngModel name="prenomj">
+    <select ngModel name="sexe" required>
+        <option value="">Sélectionnez le sexe</option>
+        <option value="homme">homme</option>
+        <option value="femme">femmme</option>									
+    </select>
+    <label >Age de  joueur </label><br><br>
+    <input type="number" ngModel name="age">
+    <label >Date de naissance  </label><br><br>
+    <input type="date" ngModel name="datenaiss">
+    <label >Carte Identité  </label><br><br>
+    <input type="number" ngModel name="cin" required>
+    <label >Poste dans equipe </label><br><br>
+    <input type="text" ngModel name="poste" required>
+    <label>Equipes</label>
+    <select  ngModel   name="idequipe" id="sport">
+        <option value="0">-Select-</option>
+        <option *ngFor="let item of lstequipes"  value={{item.idequipe}}>{{item.nomequipe}}</option>
+    </select>
+    <label >Photo</label><br><br>
+    <input type="file"  (change)="handleFileInput($event)"   ><br><br>
+    <label>Choisir Photo</label>
+    <select  ngModel   name="photo" >
+    
+     <option   value="{{c}}">{{c}}</option>
+ </select>
+  
+   <input type="submit" value="{{editmode?'Update Jouer':'Add Joueur'}}" > 
+    </fieldset>
+   
+  
+    </form>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Joueur  Id</th>
+                
+                <th>Nom </th>
+                <th>Prenom</th>
+                <th>Age</th>
+                <th>Date de naissance</th>
+                <th>cin</th>
+                <th>Poste</th>
+                <th>Equipe Id</th>
+                <th>Photo</th>
+                <th>Action</th>
+             
+            </tr>
+    
+        </thead>
+        <tbody>
+            <tr *ngFor="let dataitem of lstjoueurs ">
+                <td>{{dataitem.idj}}</td>
+                <td>{{dataitem.nomj}}</td>
+                <td>{{dataitem.prenomj}}</td>
+                <td>{{dataitem.age}}</td>
+                <td>{{dataitem.datenaiss}}</td>
+                <td>{{dataitem.cin}}</td>
+                <td>{{dataitem.poste}}</td>
+                <td>{{dataitem.idequipe}}</td>
+                <td>{{dataitem.photo}}</td>
+               
+              <td>
+              <button  type="button" (click)="update(dataitem.idj)"   class="btn btn-light mr-1">Modifier </button><br> <br>
+             <button  (click)="supprimer(dataitem.idj)"type="button"class="btn btn-danger">Supprimer</button> 
+               
+              </td>
+            </tr>
+        </tbody>
+    </table>

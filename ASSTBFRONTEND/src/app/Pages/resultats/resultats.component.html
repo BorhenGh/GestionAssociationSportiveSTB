@@ -1,0 +1,29 @@
+<section class="section" id="features">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading">
+                    
+                    <HR noshade align=center size=8 width="100%" style="background: black;">
+                    <h2>ASSTB    <em>SCORE</em></h2>
+                    <HR noshade align=center size=8 width="100%" style="background: black;">
+                </div>
+            </div>
+
+<div class="col-lg-6"  *ngFor="let s of sportlis">
+    <ul class="features-items">
+        <li class="feature-item">
+            <div class="left-icon">
+              <a [routerLink]="['/resultatcat', s.idsport]">   
+                         <img src="assets/picture/{{s.photo}}" width="100px" height="100px">
+                </a>
+                <h4>{{s.nomsport}}</h4>
+            </div>
+            <div class="right-content">
+         
+
+             
+            </div>
+        </li>
+    </ul>
+</div>

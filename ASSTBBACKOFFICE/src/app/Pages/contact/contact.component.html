@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+<div class="form-style-5">
+    <form   #usersForm="ngForm" (ngSubmit)=" getcontactFormData(usersForm.value)">
+    <fieldset>
+    <legend><span class="number">13</span> Ajouter/Modifier Contact Page</legend>
+   
+    <label >Adresse Page</label><br><br>
+    <input type="text" ngModel name="adresse">
+ 
+   
+    <label >Mail Page</label><br><br>
+    <input type="text" ngModel name="mail">
+ 
+      
+    <label >Numero Page</label><br><br>
+    <input type="text" ngModel name="numero">
+ 
+  
+   <input type="submit" value="{{editmode?'Update Contact':'Add Contact' }}" > 
+    </fieldset>
+   
+  
+    </form>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Contact Id</th>
+                <th>Adresse</th>
+                <th>Mail</th>
+                <th>Numéro</th>
+                <th>Action</th>
+            </tr>
+    
+        </thead>
+        <tbody>
+            <tr *ngFor="let dataitem of   lscontact">
+                <td>{{dataitem.id}}</td>
+                <td>{{dataitem.adresse}}</td>
+                <td>{{dataitem.mail}}</td>
+                <td>{{dataitem.numero}}</td>
+              
+              <td>
+               
+                <button  type="button" (click)="update(dataitem.id)"   class="btn btn-light mr-1">Modifier </button><br> <br>
+                <button  (click)="supprimer(dataitem.id)"type="button" class="btn btn-danger">Supprimer</button>
+              </td>
+            </tr>
+        </tbody>
+    </table>

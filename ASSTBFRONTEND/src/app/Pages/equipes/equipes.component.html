@@ -1,0 +1,33 @@
+<section class="section" id="trainers">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading">
+                    <hr align=center size=8 width="100%">
+
+                    <h2 *ngFor="let b of CatList;let i=index"><em>  {{b.type}}</em></h2>
+                        <hr align=center size=8 width="100%"> 
+                   
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+
+
+            <div class="col-lg-4" *ngFor="let e of SquadList" >
+                <div class="trainer-item" >
+                    
+                    <div class="down-content" >
+                        <span></span>           
+                        <h4> {{e.nomequipe}}</h4>
+                        <em>{{e.description}}</em>
+                            <br>
+                            <br><br>
+                       <div class="main-button"> 
+                   <a [routerLink]="['/team', e.idequipe]">Voir l'équipe </a>      
+                   </div>       
+                </div>
+            </div>
+        </div></div></div></section>

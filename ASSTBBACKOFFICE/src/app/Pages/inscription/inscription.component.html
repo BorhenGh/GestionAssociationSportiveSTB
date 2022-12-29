@@ -1,0 +1,49 @@
+<div class="form-style-5">
+    <form [formGroup]="SignForm" (ngSubmit)="SignUp()" >
+    <fieldset>
+    <legend><span class="number">1</span>Sign Up</legend>
+   
+    <label >Pseudo</label><br><br>
+    <input type="text" formControlName="pseudo"  required  class="form-control">
+    <p class="help-block text-danger"></p>
+   
+   
+    <label >Email</label><br><br>
+    <input type="email"  email required  formControlName="email" required="required" class="form-control">
+    <p class="help-block text-danger"></p>
+                                    
+                                  
+      
+    <label >Password</label><br><br>
+    <input type="password"  formControlName="password"  required class="form-control" required="required"> <br><br>
+    <p class="help-block text-danger"></p>
+  
+   <input type="submit" value="Connecter" > 
+   
+    </fieldset>
+   
+    <a routerLink="" class="btn btn-primary">Already registered? Click to Login !!!</a>    
+    </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

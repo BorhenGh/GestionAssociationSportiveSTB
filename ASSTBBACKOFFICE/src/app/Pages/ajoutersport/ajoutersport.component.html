@@ -1,0 +1,24 @@
+<div class="login-box">
+    <h2>Ajouter Sport </h2>
+    <form   #usersForm="ngForm" (ngSubmit)="getsportFormData(usersForm.value)">
+        <div class="user-box">
+            <input type="text" ngModel name="idsport" required>
+            <label>Id Sport</label>
+          </div>
+      <div class="user-box">
+        <input type="text" ngModel name="nomsport" required>
+        <label>Nom Sport</label>
+      </div>
+      <label style="color:beige;">Description</label> 
+      <div class="user-box">
+        <textarea id="txtdesc"  ngModel name="description" lass="form-control" required> </textarea>
+       
+      </div>
+      <label style="color:beige;">Photo</label> 
+      <div class="user-box">
+        <input type="file"  ngModel name="photo" class="form-control-file" required>
+      </div>
+      <input type="submit"   name="btnAjout" class="btn btn-primary" value="Valider" required>
+    </form>
+  </div>
+  

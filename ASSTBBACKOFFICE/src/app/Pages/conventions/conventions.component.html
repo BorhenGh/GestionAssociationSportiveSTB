@@ -1,0 +1,57 @@
+<app-navbar></app-navbar>
+<div class="form-style-5">
+    <form   #usersForm="ngForm" (ngSubmit)="  getconvFormData(usersForm.value)">
+    <fieldset>
+    <legend><span class="number">14</span> Ajouter/Modifier Conventions</legend>
+  
+  
+    <br><br>
+    <label >Lien</label><br><br>
+    <input type="file"  (change)="handleFileInput($event)"  accept=".pdf" >
+    <br><br>
+    <label>Choisir Fichier</label>
+    <select  ngModel   name="lien" >
+    
+     <option   value="{{c}}">{{c}}</option>
+ </select><br> <br>
+ <label>Nom de Fichier</label>
+ <select  ngModel   name="namefichier" >
+ 
+  <option   value="{{c}}">{{c}}</option>
+</select><br> <br>
+   <input type="submit" value="{{editmode?'Update Conventions':'Add Conventions'}}" > 
+    </fieldset>
+   
+  
+    </form>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Convention  Id</th>
+                
+                <th>Lien</th>
+               
+                <th>Name Fichier</th>
+              
+                <th>Action</th>
+             
+            </tr>
+    
+        </thead>
+        <tbody>
+            <tr *ngFor="let dataitem of lsconventions ">
+                <td>{{dataitem.idconv}}</td>
+                <td>{{dataitem.lien}}</td>
+              
+                <td>{{dataitem.namefichier}}</td>
+           
+              <td>
+              <button  type="button" (click)="update(dataitem.idconv)"   class="btn btn-light mr-1">Modifier </button><br> <br>
+             <button  (click)="supprimer(dataitem.idconv)"type="button"  class="btn btn-danger">Supprimer</button> 
+               
+              </td>
+            </tr>
+        </tbody>
+    </table>

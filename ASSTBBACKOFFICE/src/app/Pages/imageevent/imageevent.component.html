@@ -1,0 +1,55 @@
+<app-navbar></app-navbar>
+<div class="form-style-5">
+    <form   #usersForm="ngForm" (ngSubmit)="getimagesFormData(usersForm.value)">
+    <fieldset>
+    <legend><span class="number">1</span> Ajouter/Modifier Image Event</legend>
+  
+
+    <label >Photo event</label><br><br>
+    <input type="file"  (change)="handleFileInput($event)"  >
+    <br><br>
+    <label>Choisir Photo Event</label>
+    <select  ngModel   name="photo" >
+    
+     <option   value="{{c}}">{{c}}</option>
+ </select><br> <br>
+   <label>Event</label>
+   <select  ngModel   name="idevents" id="events">
+       <option value="0">-Select-</option>
+       <option *ngFor="let item of lstevents"  value={{item.idevents}}>{{item.nomevent}}</option>
+   </select>
+   <input type="submit" value="{{editmode?'Update photo':'Add photo'}}" > 
+    </fieldset>
+   
+  
+    </form>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Image  Id</th>
+                
+                <th>Event Id</th>
+                <th>Photo</th>
+               
+                <th>Action</th>
+             
+            </tr>
+    
+        </thead>
+        <tbody>
+            <tr *ngFor="let dataitem of lsimages  ">
+                <td>{{dataitem.idimageev}}</td>
+                <td>{{dataitem.idevents}}</td>
+                <td>{{dataitem.photo}}</td>
+             
+               
+              <td>
+              <button  type="button" (click)="update(dataitem.idimaeev)"   class="btn btn-light mr-1">Modifier </button><br> <br>
+             <button  (click)="supprimer(dataitem.idimageev)"type="button" class="btn btn-danger">Supprimer</button> 
+               
+              </td>
+            </tr>
+        </tbody>
+    </table>

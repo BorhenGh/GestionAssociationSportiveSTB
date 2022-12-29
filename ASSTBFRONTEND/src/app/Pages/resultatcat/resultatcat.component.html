@@ -1,0 +1,122 @@
+<br>
+
+     <h1>Sports<em>  </em></h1> 
+
+
+          
+
+
+     
+        
+       <br>
+       <br> 
+
+
+       <section class="league-summary-container summary-container section-standalone">
+        <h4>
+            <span class="section-pagination">
+                <a class="button" href="" ng-click="paginationToPrevPage()"><i class="icon-prev"></i></a>
+
+                <a class="button" ng-class="{disabled: !paginationIsNextEnabled()}" href="" ng-click="paginationToNextPage()"><i class="icon-next"></i></a>
+            </span>
+        </h4>
+        <br>
+        <div class="live-matches">
+            <div class="table-responsive">
+                <table class="table text-center match-list">
+                    <thead >
+                        <tr class="tt">
+                            <th >Date</th>
+                            <th style="padding-left: 100px;">Domicile </th>
+                           
+                            <th style="padding-left: 20px;">Score</th>
+                    
+                            <th>Away team</th>
+                        </tr>
+                    </thead>
+                        <tbody *ngFor="let sc of  scoreList">
+                            <!-- ngRepeat: match in paginationGetCurrentPage() -->
+                        
+
+                           
+                            
+                                
+                                <!-- ngSwitchWhen: true --><td ng-switch-when="true" colspan="6" class="date-header ng-scope">
+                                    <span class="ng-binding" style="padding-left: 90px;">
+                                    {{sc.datee}}
+                                    </span>
+                                </td>
+
+                                
+                                <!-- ngSwitchWhen: false -->
+
+                                <!-- ngSwitchWhen: false -->
+
+                                <!-- ngSwitchWhen: false -->
+
+                                <!-- ngSwitchWhen: false -->
+
+                                <!-- ngSwitchWhen: false -->
+
+                                <!-- ngSwitchWhen: false -->
+                          <!-- end ngRepeat: match in paginationGetCurrentPage() --><tr >
+                                
+                                <!-- ngSwitchWhen: true -->
+
+                                
+                                <!-- ngSwitchWhen: false --><td class="col-md-2 col-xs-2 match-time ng-binding ng-scope" ng-switch-when="false">
+                                    FT
+                                </td>
+
+                                <!-- ngSwitchWhen: false --><td class="col-md-3 col-xs-3 text-right ng-binding ng-scope" ng-switch-when="false" style="padding-right: 150px;">
+                                    {{sc.domicile}}
+                                </td>
+
+                             
+
+                                <!-- ngSwitchWhen: false --><td class="col-md-1 col-xs-1 text-center ng-scope" ng-switch-when="false">
+                                    <!-- ngIf: !isMatchNotStarted(match) --><span ng-if="!isMatchNotStarted(match)" class="match-status ng-binding ng-scope">
+                                        {{sc.butd}}&nbsp;:&nbsp;{{sc.butex}}
+                                    </span><!-- end ngIf: !isMatchNotStarted(match) -->
+
+                                    
+                                    <!-- ngIf: isMatchNotStarted(match) -->
+
+                                    <span class="match-status-extra ng-binding">FT</span>
+                                </td>
+
+                              
+
+                                <!-- ngSwitchWhen: false --><td class="col-md-4 col-xs-4 text-left ng-binding ng-scope" ng-switch-when="false"  style="padding-left : 270px;">
+                                    {{sc.exterieur}}
+                                </td>
+                            </tr><!-- end ngRepeat: match in paginationGetCurrentPage() --><tr data-ng-repeat="match in paginationGetCurrentPage()" ng-switch="match.separator === true" ui-sref="live-scores-details.match-facts({league: match.league.id, matchId: match.id})" class="ng-scope" href="/livescores/47/1988961/match-facts/">
+                                
+                                
+                            
+                             
+                                                    </table>
+                                                                            
+
+
+                        <br>
+                         <br>
+                          <br>
+                           <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+                                <br>
+                         <br>
+                          <br>
+                               
+
+                              
+                         
+                           
+                           
+           
+          
+                        
+              </div></div></section>
+                    
+                   
+                          
+                            

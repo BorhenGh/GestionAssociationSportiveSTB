@@ -1,0 +1,57 @@
+<app-navbar></app-navbar>
+<div class="form-style-5">
+    <form   #usersForm="ngForm" (ngSubmit)=" getVideosFormData(usersForm.value)">
+    <fieldset>
+    <legend><span class="number">1</span> Ajouter/Modifier video  Album</legend>
+  
+    <label >Video</label><br><br>
+    <input type="file"  (change)="handleFileInput($event)" [multiple]="true"  accept="video/mp4">
+    <br><br>
+    <label>Choisir Video Album</label>
+    <select  ngModel name="video" >
+    
+     <option   value="{{c}}">{{c}}</option>
+ </select><br> <br>
+    <label>Albums</label>
+   <select  ngModel   name="idalbum" id="sport">
+       <option value="0">-Select-</option>
+       <option *ngFor="let item of lstalbums"  value={{item.idalbum}}>{{item.nomalbum}}</option>
+   </select>
+   <label > Nom Video</label><br><br>
+    <input type="text" ngModel name="nom">
+   <input type="submit" value="{{editmode?'Update videos':'Add video'}}" > 
+    </fieldset>
+   
+  
+    </form>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Video  Id</th>
+                
+                <th>Video</th>
+               
+                <th>Albums Id</th>
+                <th>nom</th>
+                <th>Action</th>
+             
+            </tr>
+    
+        </thead>
+        <tbody>
+            <tr *ngFor="let dataitem of lsvideos ">
+                <td>{{dataitem.id}}</td>
+                <td>{{dataitem.video}}</td>
+              
+                <td>{{dataitem.idalbum}}</td>
+                <td>{{dataitem.nom}}</td>
+              <td>
+              <button  type="button" (click)="update(dataitem.id)"   class="btn btn-light mr-1">Modifier </button><br> <br>
+             <button  (click)="supprimer(dataitem.id)"type="button"  class="btn btn-danger">Supprimer</button> 
+               
+              </td>
+            </tr>
+        </tbody>
+    </table>

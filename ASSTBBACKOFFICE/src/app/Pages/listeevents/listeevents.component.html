@@ -1,0 +1,77 @@
+<app-navbar></app-navbar>
+<div class="form-style-5">
+    <form   #usersForm="ngForm" (ngSubmit)=" geteventFormData(usersForm.value)">
+    <fieldset>
+       
+    <legend><span class="number">8</span> Ajouter/Modifier Liste events</legend>
+  
+    <label >Nom event</label><br><br>
+    <input type="text" ngModel name="nomevent">
+    <label >Contenu event</label><br><br>
+    <input type="text" ngModel name="description">
+    <label >Date event</label><br><br>
+    <input type="date" ngModel name="datee">
+    <label>Event</label>
+   <select  ngModel   name="idevent" id="event">
+       <option value="0">-Select-</option>
+       <option *ngFor="let item of lsevent"  value={{item.idevent}}>{{item.titreevent}}</option>
+   </select>
+ 
+    <label >Photo</label><br><br>
+    <input type="file"(change)="handleFileInput($event)"  > <br> <br> <br> 
+    <br><br>
+    <label>Choisir Photo</label>
+    <select  ngModel   name="photo" >
+    
+     <option   value="{{c}}">{{c}}</option>
+ </select><br> <br>
+    <input type="submit" value="{{editmode?'Update List Event':'Add List Event' }}" > 
+  
+        <b><a routerLink="/ajouterimageevent"  class="btn btn-warning">Ajouter images event</a></b> <br> <br>
+      
+        
+
+      
+        <b><a routerLink="/ajoutervideoevent"  class="btn btn-warning">Ajouter  videos event</a></b>
+     
+  
+    </fieldset>
+   
+  
+    </form>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Events Id</th>
+                
+                <th>Nom </th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Event Id</th>
+                <th>Photo</th>
+                <th>Action</th>
+                
+            </tr>
+    
+        </thead>
+        <tbody>
+            <tr *ngFor="let dataitem of lsevents ">
+                <td>{{dataitem.idevents}}</td>
+                <td>{{dataitem.nomevent}}</td>
+                <td>{{dataitem.description}}</td>
+                <td>{{dataitem.datee}}</td>
+                <td>{{dataitem.idevent}}</td>
+                <td>{{dataitem.photo}}</td>
+               
+              <td>
+              <button  type="button" (click)="update(dataitem.idevents)"   class="btn btn-light mr-1">Modifier </button><br> <br>
+             <button  (click)="supprimer(dataitem.idevents)"type="button" class="btn btn-light mr-1 ">Supprimer</button> 
+               
+              </td>
+            </tr>
+        </tbody>
+    </table>
+   
+   

@@ -1,0 +1,88 @@
+<app-navbar></app-navbar>
+<div class="form-style-5">
+    <form   #usersForm="ngForm" (ngSubmit)=" getbureauFormData(usersForm.value)">
+    <fieldset>
+    <legend><span class="number">9</span> Ajouter/Modifier Membre bureau</legend>
+  
+    <label >Nom membre bureau </label><br><br>
+    <input type="text" ngModel name="nomb">
+    
+    <label >Prenom membre bureau </label><br><br>
+    <input type="text" ngModel name="prenomb">
+    
+    <label>Sexe</label>
+<select ngModel name="sexe" required>
+ <option value="">Sélectionnez le sexe</option>
+ <option value="homme">homme</option>
+ <option value="femme">femmme</option>									
+</select>
+    
+    <label >Carte identité membre bureau </label><br><br>
+    <input type="number" ngModel name="cinb">
+    
+    <label>Poste</label>
+        <select ngModel name="poste" required>
+
+         <option value="">Sélectionnez le poste</option>
+         <option value="Président">Président</option>
+         <option value="Secrétaire général">Secrétaire général</option>	
+         <option value="Vice-président">Vice-président</option>	
+         <option value="Trésorerier">Trésorerier</option>
+         <option value="Secrétaire général adjoint">Secrétaire général adjoint</option>
+         <option value="Trésorerier adjoint">Trésorerier adjoint</option>
+         <option value="membre">membre</option>									
+        </select>
+        <label >Date de naissance  membre bureau </label><br><br>
+        <input type="date" ngModel name="datenaissb">
+    <label >Photo</label><br><br>
+    <input type="file" (change)="handleFileInput($event)"  accept="image/*"><br><br><br><br>
+
+    <label>Choisir Photo perosnnel</label>
+    <select  ngModel   name="photo" >
+    
+     <option   value="{{c}}">{{c}}</option>
+ </select>
+   <input type="submit" value="{{editmode?'Update membre':'Add membre'}}" > 
+   
+    </fieldset>
+   
+  
+    </form>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Membre  Id</th>
+                
+                <th>Nom membre</th>
+                <th>prenom membre</th>
+                <th>Sexe</th>
+                <th>Carte Identité</th>
+                <th>poste</th>
+                <th>datenaissb</th>
+                <th>Photo</th>
+                <th>Action</th>
+             
+            </tr>
+    
+        </thead>
+        <tbody>
+            <tr *ngFor="let dataitem of lstb  ">
+                <td>{{dataitem.idb}}</td>
+                <td>{{dataitem.nomb}}</td>
+                <td>{{dataitem.prenomb}}</td>
+                <td>{{dataitem.sexe}}</td>
+                <td>{{dataitem.cinb}}</td>
+                <td>{{dataitem.poste}}</td>
+                <td>{{dataitem.datenaissb}}</td>
+                <td>{{dataitem.photo}}</td>
+               
+              <td>
+              <button  type="button" (click)="update(dataitem.idb)"   class="btn btn-light mr-1">Modifier </button><br> <br>
+             <button  (click)="supprimer(dataitem.idb)"type="button" class="btn btn-danger">Supprimer</button> 
+               
+              </td>
+            </tr>
+        </tbody>
+    </table>

@@ -1,0 +1,60 @@
+<app-navbar></app-navbar>
+<div class="form-style-5">
+    <form   #usersForm="ngForm" (ngSubmit)="getmatchFormData(usersForm.value)">
+    <fieldset>
+    <legend><span class="number">5</span> Ajouter/Modifier Match</legend>
+  
+    <label >Equipe domicile</label><br><br>
+    <input type="text" ngModel name="domicile">
+    <label >Equipe extérieur</label><br><br>
+    <input type="text" ngModel name="exterieur">
+    <label >Nombre but équipe domicile</label><br><br>
+   <input type="number" ngModel name="butd">
+   <label >Nombre but équipe exterieur</label><br><br>
+   <input type="number" ngModel name="butex">
+   <label >Date de match</label><br><br>
+   <input type="date" ngModel name="datee">
+   <label>Sport</label>
+   <select  ngModel   name="idsport" id="sport">
+       <option value="0">-Select-</option>
+       <option *ngFor="let item of lssport"  value={{item.idsport}}>{{item.nomsport}}</option>
+   </select>
+   <input type="submit" value="{{editmode?'Update Match':'Add Match' }}" > 
+    </fieldset>
+   
+  
+    </form>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Match Id</th>
+                
+                <th>Domicile</th>
+                <th>Exterieur</th>
+                <th>butd</th>
+                <th>butex</th>
+                <th>date</th>
+                <th>Sport ID</th>
+                <th>Action</th>
+            </tr>
+    
+        </thead>
+        <tbody>
+            <tr *ngFor="let dataitem of lstmatch  ">
+                <td>{{dataitem.idmatch}}</td>
+                <td>{{dataitem.domicile}}</td>
+                <td>{{dataitem.exterieur}}</td>
+                <td>{{dataitem.butd}}</td>
+                <td>{{dataitem.butex}}</td>
+                <td>{{dataitem.datee}}</td>
+                <td>{{dataitem.idsport}}</td>
+              <td>
+              <button  type="button" (click)="update(dataitem.idmatch)"   class="btn btn-light mr-1">Modifier </button><br> <br>
+             <button  (click)="supprimer(dataitem.idmatch)"type="button" class="btn btn-danger">Supprimer</button> 
+               
+              </td>
+            </tr>
+        </tbody>
+    </table>

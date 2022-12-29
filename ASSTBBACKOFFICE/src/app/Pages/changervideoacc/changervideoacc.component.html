@@ -1,0 +1,48 @@
+<app-navbar></app-navbar>
+<div class="form-style-5">
+    <form   #usersForm="ngForm" (ngSubmit)=" getvidaccFormData(usersForm.value)">
+    <fieldset>
+    <legend><span class="number">12</span> Ajouter/Modifier Sport</legend>
+   
+   
+    <label >Video Accueil</label><br><br>
+   <input type="file" (change)="handleFileInput($event)" [multiple]="true" accept="video/mp4"   class="form-group" >
+
+   <br><br>
+   <label>Choisir Video Accueil</label>
+   <select  ngModel name="video" >
+   
+    <option   value="{{c}}">{{c}}</option>
+</select>
+  
+   <input type="submit" value="{{editmode?'Update Sport':'Add Sport' }}" > 
+    </fieldset>
+   
+  
+    </form>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Video Id</th>
+                <th>Video</th>
+              
+                <th>Action</th>
+            </tr>
+    
+        </thead>
+        <tbody>
+            <tr *ngFor="let dataitem of   lsviac">
+                <td>{{dataitem.id}}</td>
+                <td>{{dataitem.video}}</td>
+                
+              
+              <td>
+               
+                <button  type="button" (click)="update(dataitem.id)"   class="btn btn-light mr-1">Modifier </button><br> <br>
+                <button  (click)="supprimer(dataitem.id)"type="button" class="btn btn-danger">Supprimer</button>
+              </td>
+            </tr>
+        </tbody>
+    </table>

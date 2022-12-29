@@ -1,0 +1,67 @@
+<app-navbar></app-navbar>
+<div class="form-style-5">
+    <form   #usersForm="ngForm" (ngSubmit)="getsportFormData(usersForm.value)">
+    <fieldset>
+    <legend><span class="number">4</span> Ajouter/Modifier Responsable</legend>
+  
+    <label >Nom</label><br><br>
+    <input type="text" ngModel name="nomresponsable">
+    <label >Prenom</label><br><br>
+    <input type="text" ngModel name="prenomresponsable">
+    <label >Carte Identité</label><br><br>
+   <input type="number" ngModel name="cin">
+   <label >Fonction</label><br><br>
+   <input type="text" ngModel name="fonction">
+   <label>Equipes</label>
+   <select  ngModel   name="idequipe" id="sport">
+       <option value="0">-Select-</option>
+       <option *ngFor="let item of lssequipes"  value={{item.idequipe}}>{{item.nomequipe}}</option>
+   </select>
+   <label >Photo personnel</label><br><br>
+   <input type="file" (change)="handleFileInput($event)" [multiple]="true" accept="image/*"    class="form-group"  ngModel name="photo" value=" {{c}}"  > <br> <br>
+   <label>Choisir Photo perosnnel</label>
+   <select  ngModel   name="photo" >
+   
+    <option   value="{{c}}">{{c}}</option>
+</select>
+  
+   <input type="submit" value="{{editmode?'Update Responsable':'Add Responsable' }}" > 
+    </fieldset>
+   
+  
+    </form>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Responsable Id</th>
+                <th>Nom</th>
+                
+                <th>Prenom</th>
+                <th>Carte Identité</th>
+                <th>Fonction</th>
+                <th>Equipe Id</th>
+                <th>Photo personnel</th>
+                <th>Action</th>
+              
+            </tr>
+    
+        </thead>
+        <tbody>
+            <tr *ngFor="let dataitem of lstrespo  ">
+                <td>{{dataitem.idresponsable}}</td>
+                <td>{{dataitem.nomresponsable}}</td>
+                <td>{{dataitem.prenomresponsable}}</td>
+                <td>{{dataitem.cin}}</td>
+                <td>{{dataitem.fonction}}</td>
+                <td>{{dataitem.idequipe}}</td>
+                <td>{{dataitem.photo}}</td>
+              <td>
+              <button  type="button" (click)="update(dataitem.idresponsable)"   class="btn btn-light mr-1">Modifier </button><br> <br>
+             <button  (click)="supprimer(dataitem.idresponsable)"type="button" class="btn btn-danger">Supprimer</button> 
+               
+              </td>
+            </tr>
+        </tbody>
+    </table>
